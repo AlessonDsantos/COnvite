@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convite para Discurso Sacramental</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif;
+    background: linear-gradient(135deg, #f5f5f0 0%, #e8e6e1 100%);
+    padding: 20px;
+}
+
+/* Formulário */
+.formulario {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.formulario h2 {
+    font-family: 'Cinzel', serif;
+    color: #2c5f2d;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #2c5f2d;
+}
+
+.campo input,
+.campo select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.botoes {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button {
+    background: #2c5f2d;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Cinzel', serif;
+}
+
+button:hover {
+    background: #1e401f;
+}
+
+/* Convite */
+.convite-container {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #fffef8;
+    position: relative;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.borda-externa {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 3px double #2c5f2d;
+    pointer-events: none;
+}
+
+.borda-externa::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px solid #2c5f2d;
+}
+
+.corner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 3px solid #2c5f2d;
+}
+
+.corner-tl { top: 25px; left: 25px; border-right: none; border-bottom: none; }
+.corner-tr { top: 25px; right: 25px; border-left: none; border-bottom: none; }
+.corner-bl { bottom: 25px; left: 25px; border-right: none; border-top: none; }
+.corner-br { bottom: 25px; right: 25px; border-left: none; border-top: none; }
+
+.ornament {
+    position: absolute;
+    font-size: 24px;
+    color: #2c5f2d;
+}
+
+.ornament-tl { top: 15px; left: 15px; }
+.ornament-tr { top: 15px; right: 15px; transform: scaleX(-1); }
+.ornament-bl { bottom: 15px; left: 15px; transform: scaleY(-1); }
+.ornament-br { bottom: 15px; right: 15px; transform: scale(-1); }
+
+.conteudo {
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    text-align: center;
+}
+
+.logo-igreja {
+    margin: 30px 0;
+    padding: 20px;
+    border-top: 2px solid #2c5f2d;
+    border-bottom: 2px solid #2c5f2d;
+    display: inline-block;
+}
+
+.logo-igreja h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    color: #2c5f2d;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 1.4;
+    max-width: 500px;
+}
+
+.separador {
+    margin: 25px auto;
+    width: 200px;
+    height: 30px;
+    position: relative;
+}
+
+.separador::before,
+.separador::after {
+    content: '❧';
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    color: #2c5f2d;
+    font-size: 20px;
+}
+
+.separador::before { left: 0; }
+.separador::after { right: 0; }
+
+.separador .linha {
+    position: absolute;
+    top: 50%; left: 30px; right: 30px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #2c5f2d, transparent);
+}
+
+.saudacao {
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px;
+    color: #2c5f2d;
+}
+
+.titulo-destino {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    color: #4a4a4a;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+.nome-orador {
+    font-family: 'Great Vibes', cursive;
+    font-size: 52px;
+    color: #1a1a1a;
+    margin: 30px 0;
+    padding: 15px;
+    border-bottom: 2px solid #c9b037;
+    display: inline-block;
+}
+
+.ala-nome {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    color: #2c5f2d;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.texto-convite {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    text-align: justify;
+    text-align-last: center;
+}
+
+.texto-convite strong {
+    color: #2c5f2d;
+}
+
+.caixa-destaque {
+    background: linear-gradient(135deg, #f9f9f5 0%, #f0efe8 100%);
+    border: 2px solid #2c5f2d;
+    border-radius: 8px;
+    padding: 25px;
+    margin: 25px auto;
+    max-width: 500px;
+}
+
+.label {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.data-evento {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    color: #2c5f2d;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.tema-discurso {
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px;
+    color: #1a1a1a;
+    margin-top: 10px;
+}
+
+.secao-instrucoes {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #c9b037;
+}
+
+.titulo-secao {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: #2c5f2d;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.texto-instrucoes {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #555;
+    max-width: 550px;
+    margin: 0 auto 20px;
+    font-style: italic;
+}
+
+.obra-missionaria {
+    background: #2c5f2d;
+    color: white;
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 550px;
+    border-radius: 5px;
+}
+
+.obra-missionaria strong {
+    color: #c9b037;
+}
+
+.info-adicional {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
+}
+
+.hora-chegada {
+    font-weight: 600;
+    color: #2c5f2d;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.assinatura {
+    margin-top: 50px;
+    padding-top: 30px;
+}
+
+.texto-sinceramente {
+    font-family: 'Great Vibes', cursive;
+    font-size: 28px;
+    color: #4a4a4a;
+    margin-bottom: 30px;
+}
+
+.nomes-bispado {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 600;
+}
+
+.cargo {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .formulario {
+        display: none;
+    }
+
+    .convite-container {
+        box-shadow: none;
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+    }
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+</style>
+</head>
+<body>
+
+<!-- FORMULÁRIO -->
+<div class="formulario">
+    <h2>Gerador de Convite para Discurso</h2>
+
+    <div class="grid">
+        <div class="campo">
+            <label>Nome</label>
+            <input type="text" id="nome" value="Bryan Jared">
+        </div>
+
+        <div class="campo">
+            <label>Sexo</label>
+            <select id="sexo">
+                <option value="Irmão">Irmão</option>
+                <option value="Irmã">Irmã</option>
+            </select>
+        </div>
+
+        <div class="campo">
+            <label>Tema</label>
+            <input type="text" id="tema" value="Magnificar meu chamado">
+        </div>
+
+        <div class="campo">
+            <label>Data</label>
+            <input type="date" id="data" value="2026-05-17">
+        </div>
+
+        <div class="campo">
+            <label>Tempo do Discurso (min)</label>
+            <input type="number" id="tempo" value="15">
+        </div>
+
+        <div class="campo">
+            <label>Posição no Programa</label>
+            <select id="posicao">
+                <option value="primeiro orador">Primeiro Orador</option>
+                <option value="segund orador">Segundo Orador</option>
+                <option value="último orador" selected>Último Orador</option>
+                
+            </select>
+        </div>
+
+        <div class="campo">
+            <label>Hora da Reunião</label>
+            <input type="time" id="horaReuniao" value="09:00">
+        </div>
+
+        <div class="campo">
+            <label>Hora de Chegada</label>
+            <input type="time" id="horaChegada" value="08:45">
+        </div>
+    </div>
+
+    <div class="botoes">
+        <button onclick="atualizarConvite()">Gerar Convite</button>
+        <button onclick="window.print()">Imprimir / Salvar PDF</button>
+    </div>
+</div>
+
+<!-- CONVITE -->
+<div class="convite-container">
+    <div class="borda-externa"></div>
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+
+    <div class="ornament ornament-tl">❦</div>
+    <div class="ornament ornament-tr">❦</div>
+    <div class="ornament ornament-bl">❦</div>
+    <div class="ornament ornament-br">❦</div>
+
+    <div class="conteudo">
+        <div class="logo-igreja">
+            <h1>A IGREJA DE JESUS CRISTO DOS SANTOS DOS ÚLTIMOS DIAS</h1>
+        </div>
+
+        <div class="separador"><div class="linha"></div></div>
+
+    
+        <div class="titulo-destino" id="destino">Irmão</div>
+
+        <div class="nome-orador" id="previewNome">Bryan Jared</div>
+        <div class="ala-nome">Ala Vila Matilde</div>
+
+        <div class="texto-convite">
+            O bispado da Ala Vila Matilde, pelo presente, convida ao(à)
+            <span id="destinoTexto">irmão</span>
+            para compartilhar um
+            <strong><span id="previewTempo">15</span> minutos</strong>
+            como
+            <strong><span id="previewPosicao">último orador</span></strong>,
+            na <strong>Reunião Sacramental</strong>,
+            que realizar-se-á no dia
+        </div>
+
+        <div class="caixa-destaque">
+            <div class="label">Data do Evento</div>
+            <div class="data-evento" id="previewData">17 de maio de 2026</div>
+
+            <div class="separador" style="width:100px; margin:15px auto;"><div class="linha"></div></div>
+
+            <div class="label">Tema do Discurso</div>
+            <div class="tema-discurso" id="previewTema">Magnificar meu chamado</div>
+        </div>
+
+        <div class="texto-convite" style="margin-top: 20px;">
+            às <strong id="previewHoraReuniao">09:00</strong>,
+            na <strong>Ala Vila Matilde</strong>,
+            e será presidida por <strong>Bispo Wesley Brito</strong>.
+        </div>
+
+        <div class="secao-instrucoes">
+            <div class="titulo-secao">Instruções</div>
+            <div class="texto-instrucoes">
+                <strong>Fonte para Consulta:</strong>
+                Utilize a Bíblia, o Livro de Mórmon, Doutrina e Convênios,
+                Princípios do Evangelho e outros materiais da Igreja.
+            </div>
+        </div>
+
+        <div class="obra-missionaria">
+            <p>
+                <strong>AO SE PREPARAR PARA O SEU DISCURSO,</strong>
+                ore ao Senhor para ajudá-lo a convidar um amigo ou familiar.
+            </p>
+        </div>
+
+        <div class="info-adicional">
+            Os convidados a fazerem parte do programa de reunião estão sendo convidados
+            a se sentar no púlpito desde o início da reunião.
+        </div>
+
+        <div class="hora-chegada">
+            Solicitamos a sua presença até às
+            <span id="previewHoraChegada">08:45</span>
+        </div>
+
+        <div class="assinatura">
+            <div class="texto-sinceramente">Sinceramente,</div>
+
+            <div class="nomes-bispado">
+                Wesley Brito<br>
+                Erikes Rocha<br>
+                Matheus Clementino
+            </div>
+
+            <div class="cargo">Bispado Ala Vila Matilde</div>
+        </div>
+    </div>
+</div>
+
+<script>
+function formatarData(dataISO) {
+    if (!dataISO) return '';
+
+    const meses = [
+        'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
+        'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
+    ];
+
+    const [ano, mes, dia] = dataISO.split('-');
+    return `${parseInt(dia)} de ${meses[parseInt(mes) - 1]} de ${ano}`;
+}
+
+function atualizarConvite() {
+    const nome = document.getElementById('nome').value;
+    const sexo = document.getElementById('sexo').value;
+    const tema = document.getElementById('tema').value;
+    const data = document.getElementById('data').value;
+    const tempo = document.getElementById('tempo').value;
+    const posicao = document.getElementById('posicao').value;
+    const horaReuniao = document.getElementById('horaReuniao').value;
+    const horaChegada = document.getElementById('horaChegada').value;
+
+    document.getElementById('previewNome').textContent = nome;
+    document.getElementById('destino').textContent = sexo;
+    document.getElementById('destinoTexto').textContent = sexo === 'Irmã' ? 'irmã' : 'irmão';
+    document.getElementById('previewTema').textContent = tema;
+    document.getElementById('previewData').textContent = formatarData(data);
+    document.getElementById('previewTempo').textContent = tempo;
+    document.getElementById('previewPosicao').textContent = posicao;
+    document.getElementById('previewHoraReuniao').textContent = horaReuniao;
+    document.getElementById('previewHoraChegada').textContent = horaChegada;
+}
+
+// Gera automaticamente ao abrir a página
+atualizarConvite();
+</script>
+
+</body>
+</html>
+```
